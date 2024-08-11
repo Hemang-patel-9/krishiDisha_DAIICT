@@ -11,6 +11,7 @@ import machine from '../../public/assets/images/machinery.jpg'
 
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import Footer from "@/component/Footer";
 AOS.init({ duration: 3000 });
 
 const slides = [
@@ -136,6 +137,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

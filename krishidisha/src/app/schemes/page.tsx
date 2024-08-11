@@ -17,8 +17,10 @@ import schemaImg12 from '../../../public/assets/images/12.png';
 import schemaImg13 from '../../../public/assets/images/13.webp';
 import schemaImg14 from '../../../public/assets/images/14.jpeg';
 import schemaImg15 from '../../../public/assets/images/15.png';
+import Navbar from '@/component/Navbar';
 
 export default function Schemes() {
+    const imagelist = [schemaImg1, schemaImg2, schemaImg3, schemaImg4, schemaImg5, schemaImg6, schemaImg7, schemaImg8, schemaImg9, schemaImg10, schemaImg11, schemaImg12, schemaImg13, schemaImg14, schemaImg15]
     const [schemes, setSchemes] = useState<any[]>([]);
     const getAllSchemes = async () => {
         try {
@@ -37,48 +39,50 @@ export default function Schemes() {
     }, []);
 
     return (
-        <main className="main h-screen">
-            {Array.isArray(schemes) && schemes.map((scheme: any, index: any) => (
-                <section key={index} className="card-area mb-52">
-                    <section className="card-section">
-                        <div className="card">
-                            <div className="flip-card">
-                                <div className="flip-card__container">
-                                    <div className="card-front">
-                                        <div className="card-front__tp card-front__tp--camping ">
-                                            <Image
-                                                src={schemaImg1}
-                                                alt={scheme.name}
-                                                width={300}
-                                                height={300}
-                                            />
+        <div>
+            <Navbar />
+            <main className="main h-screen bg-gray-200">
+                {Array.isArray(schemes) && schemes.map((scheme: any, index: any) => (
+                    <section key={index} className="card-area ">
+                        <section className="card-section">
+                            <div className="card">
+                                <div className="flip-card">
+                                    <div className="flip-card__container">
+                                        <div className="card-front">
+                                            <div className="card-front__tp card-front__tp--camping">
+                                                <Image
+                                                    src={imagelist[index]}
+                                                    alt={scheme.name}
+                                                    // width={300}
+                                                    // height={300}
+                                                    layout="responsive"
+                                                    className="object-cover w-full h-full"
+                                                />
+                                            </div>
+                                            <div className="card-front__bt flex justify-center text-center">
+                                                <p className="card-front__text-view card-front__text-view--camping p-2">
+                                                    {scheme.schemeName}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div className="card-front__bt">
-                                            <p className="card-front__text-view card-front__text-view--camping">
-                                                {scheme.name}
-                                            </p>
+                                        <div className="card-back">
                                         </div>
-                                    </div>
-                                    <div className="card-back">
                                     </div>
                                 </div>
-                            </div>
 
-                            <div className="inside-page">
-                                <div className="inside-page__container">
-                                    <h3 className="inside-page__heading inside-page__heading--camping">
-                                        {scheme.schemeName}
-                                    </h3>
-                                    <p className="inside-page__text text-xs">
-                                        {scheme.schemeDescription}
-                                    </p>
-                                    <button className="inside-page__btn inside-page__btn--camping text-sm">View deals</button>
+                                <div className="inside-page">
+                                    <div className="inside-page__container">
+                                        <p className="inside-page__text text-xs pt-5 px-5 h-[70%]">
+                                            {scheme.schemeDescription}
+                                        </p>
+                                        <button className="inside-page__btn inside-page__btn--camping text-sm h-[15%]">View deals</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </section>
-                </section>
-            ))}
-        </main>
+                ))}
+            </main>
+        </div>
     );
 }

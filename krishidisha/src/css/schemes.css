@@ -37,7 +37,7 @@
 
 .inside-page__heading--camping,
 .card-front__text-view--camping {
-    color: #00b97c;
+    color: #406E49;
 }
 
 /* Front cover */
@@ -56,7 +56,7 @@
 
 /* For inside page's body text */
 .inside-page__text {
-    color: #333;
+    color: #0c261b;
 }
 
 /* Icons ===========================================*/
@@ -127,16 +127,16 @@
 }
 
 .inside-page__btn--camping {
-    border-color: #00b97d;
-    color: #00b97d;
+    border-color: #406E49;
+    color: #769E77;
 }
 
 .inside-page__btn--camping::before {
-    background-color: #00b97d;
+    background-color: #406E49;
 }
 
 .inside-page__btn:hover {
-    color: #fafbfa;
+    color: #d0d4c5;
 }
 
 .inside-page__btn:hover::before {
@@ -146,9 +146,9 @@
 /* Layout Structure=========================================*/
 
 .main {
-    background: linear-gradient(to bottom right,
-            #eee8dd,
-            #e3d9c6);
+    /* background: linear-gradient(to bottom right,
+            #f0ead6,
+            #e3d9c6); */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     /* display: flex;
@@ -271,8 +271,8 @@
 
 .card-front__tp--camping {
     background: linear-gradient(to bottom,
-            #00db93,
-            #00b97d);
+            #406E49,
+            #769E77);
 }
 
 /* Front card's bottom section */
@@ -280,6 +280,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 /* Styling for the back side of the flip card */
