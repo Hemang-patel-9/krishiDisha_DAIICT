@@ -5,11 +5,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 // Disable Next.js from handling body parsing since we will handle it ourselves
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-};
+
 
 export async function PUT(req: Request) {
     try {

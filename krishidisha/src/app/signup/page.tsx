@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link"
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import "../../css/signup.css";
 export default function Signup() {
     const [username, setUsername] = useState("");
@@ -12,6 +13,7 @@ export default function Signup() {
     const [mobileno, setMobileno] = useState("");
     const [active, setActive] = useState<string>("");
     const [loader, setLoader] = useState(false);
+    const router = useRouter();
     const [formError, setFormError] = useState({
         title: "",
         message: ""
@@ -149,8 +151,11 @@ export default function Signup() {
             if (data.success) {
                 console.log("User logged in successfully");
                 setLoader(false);
+                router.push('/');
+
             } else {
                 setLoader(false);
+                alert("User couldn't log in.")
                 setFormError({ ...formError, title: "lpassword", message: "Credentials are incorrect." });
             }
         } catch (err) {
@@ -206,8 +211,9 @@ export default function Signup() {
             if (data.success) {
                 console.log("User registered successfully");
                 setLoader(false);
+                router.push('/');
             } else {
-                alert("error");
+                alert("user could not be registered");
                 setLoader(false);
             }
         } catch (error) {

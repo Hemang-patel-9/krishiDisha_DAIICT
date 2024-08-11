@@ -33,15 +33,16 @@ export default function Booking() {
 
     const registerBooking = async () => {
         try {
-            const response = await fetch("/api/user/signup", {
+            const response = await fetch("/api/booking", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email: booking.email, market_yard: "",
+                    email: booking.email,
+                    market_yard: selectedYard,
                     booking_date: booking.booking_date,
-                    booking_timeslot: booking.booking_timeslot,
+                    booking_timeslot: selectedTime,
                     goods_type: booking.goods_type,
                     quantity: booking.quantity,
                     status: "pending"
@@ -89,7 +90,7 @@ export default function Booking() {
                     </div>
                     <div className='p-2 flex items-center'>
                         <label className='text-color1 font-bold text-lg pe-3'>Date of Booking : </label>
-                        <input type='text' name='booking_date' className='bg-transparent border-b-2 outline-none flex-1' onChange={inputHandler}></input>
+                        <input type='date' name='booking_date' className='bg-transparent border-b-2 outline-none flex-1' onChange={inputHandler}></input>
                     </div>
                     <div className='p-2 flex items-center'>
                         <label className='text-color1 font-bold text-lg pe-3'>Booking Timeslot : </label>
@@ -115,10 +116,6 @@ export default function Booking() {
                     <div className='p-2 flex items-center'>
                         <label className='text-color1 font-bold text-lg pe-3'>Quantity : </label>
                         <input type='text' name='quantity' className='bg-transparent border-b-2 outline-none flex-1' onChange={inputHandler}></input>
-                    </div>
-                    <div className='p-2 flex items-center'>
-                        <label className='text-color1 font-bold text-lg pe-3'>Status : </label>
-                        <input type='text' name='status' className='bg-transparent border-b-2 outline-none flex-1' onChange={inputHandler}></input>
                     </div>
                 </div>
                 <div className='flex ps-16 pe-8 mt-10'>
